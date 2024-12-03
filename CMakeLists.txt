@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.19)
 project(sampleproj LANGUAGES CXX)
+#include($ENV{HOME}/vcpkg/scripts/buildsystems/vcpkg.cmake)
 
 add_executable(main main.cpp)
 set_property(TARGET main PROPERTY OUTPUT_NAME main)
