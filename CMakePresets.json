@@ -19,7 +19,19 @@
         "CMAKE_OSX_ARCHITECTURES": "arm64",
         "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "./ios.toolchain.cmake",
         "VCPKG_TARGET_TRIPLET": "arm64-ios",
-        "PLATFORM": "OS64COMBINED"
+        "PLATFORM": "OS64"
+      }
+    },
+    {
+      "name": "simulator",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_CXX_FLAGS": "-fstack-protector-strong -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wcast-qual -Wformat=2 -Wundef -Werror=float-equal -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -Wimplicit-fallthrough -Wextra-semi -Woverloaded-virtual -Wnon-virtual-dtor -Wold-style-cast",
+        "CMAKE_OSX_ARCHITECTURES": "arm64",
+        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "./ios.toolchain.cmake",
+        "VCPKG_TARGET_TRIPLET": "arm64-ios-simulator",
+        "PLATFORM": "SIMULATORARM64"
       }
     }
   ],
@@ -31,6 +43,10 @@
     {
       "name": "ios",
       "configurePreset": "ios"
+    },
+    {
+      "name": "simulator",
+      "configurePreset": "simulator"
     }
   ]
 }
